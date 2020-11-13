@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './TestComponent.css';
 
 function TestComponent(props: { name: string }) {
@@ -6,6 +6,16 @@ function TestComponent(props: { name: string }) {
 // const state = {
 //     age: 21
 // }
+
+// 1 - parametro função de callBack
+// 2 - parametro array de dependências
+useEffect(() => {
+    console.log('Component was created');
+}, [])
+
+useEffect(() => {
+    console.log(`Age has been updated to:${age}`);
+}, [age])
 
 return <div className="TestComponent">
     Olá { props.name }, {age}
