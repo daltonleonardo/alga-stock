@@ -1,25 +1,29 @@
 import React from 'react';
-import Container from '../../shared/Container';
-import Table from '../../shared/Table';
+import './App.css';
 import Header from '../Header';
+import Container from '../../shared/Container';
+import Table, { TableHeader } from '../../shared/Table';
+import Products from '../../shared/Table/Table.mockdata';
 
+const headers: TableHeader[] = [
+  { key: 'id', value: '#' },
+  { key: 'name', value: 'Product' },
+  { key: 'price', value: 'Price', right: true },
+  { key: 'stock', value: 'Available Stock', right: true }
+]
 
 function App() {
-
-
   return (
     <div className="App">
-      <Header title="AlgaStock"></Header>
+      <Header title="AlgaStock" />
       <Container>
-       <Table/>
+        <Table
+          headers={headers}
+          data={Products}
+        />
       </Container>
     </div>
   );
 }
-
-React.createElement('div', {
-  children: React.createElement('asdds')
-});
-
 
 export default App;
