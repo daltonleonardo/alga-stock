@@ -47,11 +47,17 @@ function organizeData (data: any[], headers: TableHeader[]):
     return organizedItem
   })
 
+  // console.table(organizedData);
+
   return [organizedData, indexedHeaders]
 }
 
 const Table = () => {
   const [organizedData, indexedHeaders] = organizeData(Products, headers)
+
+  // console.log('organizedData - indexedHeaders');
+  // console.table(organizedData);
+  // console.table(indexedHeaders);
   return <table className="AppTable">
     <thead>
       <tr>
