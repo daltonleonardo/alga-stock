@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '../../shared/Container';
+import Table from '../../shared/Table';
 import Header from '../Header';
 
 
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       <Header title="AlgaStock"></Header>
       <Container>
-       
+       <Table/>
       </Container>
     </div>
   );
