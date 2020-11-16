@@ -16,27 +16,25 @@ const headers: TableHeader[] = [
 function App() {
   const [products, setProducts] = useState(Products)
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>(products[0])
-
+  
   const handleProductSubmit = (product: ProductCreator) => {
-    console.log('teste')
     setProducts([
       ...products,
       {
         id: products.length + 1,
         ...product
-
       }
     ])
   }
 
   const handleProductUpdate = (newProduct: Product) => {
-    setProducts(products.map(product => 
+    setProducts(products.map(product =>
       product.id === newProduct.id
-      ? newProduct
-      : product
-      ))
-      setUpdatingProduct(undefined);
-    
+        ? newProduct
+        : product
+    ))
+
+    setUpdatingProduct(undefined)
   }
 
   return (
@@ -46,6 +44,10 @@ function App() {
         <Table
           headers={headers}
           data={products}
+          enableActions
+          onDelete={console.log}
+          onDetail={console.log}
+          onEdit={console.log}
         />
 
         <ProductForm
