@@ -3,20 +3,20 @@ import { Product } from '../shared/Table/Table.mockdata';
 import http from '../utils/http';
 
 export const getAllProducts = () =>
-http.get<Product[]>('http://localhost:3024/products')
+http.get<Product[]>('/products')
 .then(res => res.data)
 
 export const createSingleProduct= (product: ProductCreator) =>
-http.post<Product>('http://localhost:3024/products', product)
+http.post<Product>('/products', product)
 
 export const updateSingleProduct= ({_id, name, price, stock }: Product) =>
-http.patch<Product>(`http://localhost:3024/products/${_id}`, {
+http.patch<Product>(`/products/${_id}`, {
     ...(name && { name}),
     ...(price && { price}),
     ...(stock && { stock}),
 })
 
 export const deleteSingleProduct= (_id: string ) =>
-http.delete(`http://localhost:3024/products/${_id}`)
+http.delete(`/products/${_id}`)
 
 
