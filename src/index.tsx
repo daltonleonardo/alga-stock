@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import http from './utils/http';
+// import http from './utils/http';
 import { Provider } from 'react-redux';
 import store from './redux';
 
-http.get('/posts');
-http.get('https://viacep.com.br/ws/04205000/json/');
+// http.get('/posts');
+// http.get('https://viacep.com.br/ws/04205000/json/');
 
 
 ReactDOM.render(
