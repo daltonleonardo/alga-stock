@@ -1,8 +1,12 @@
 import React from 'react';
 import './Header.css'
+import { RootState } from '../../redux';
+import { connect } from 'react-redux';
+import { Product } from '../../shared/Table/Table.mockdata';
 
 declare interface HeaderProps {
     title: string
+    firstProduct: Product
 }
 
 //Forma de tipar na mão
@@ -16,7 +20,12 @@ declare interface HeaderProps {
 const Header: React.FC<HeaderProps> = (props) => {
     return <header className="AppHeader">
         <h1>{props.title}</h1>
+        <span>{props.firstProduct && props.firstProduct.name? props.firstProduct.name : '--'} </span>
     </header>
 }
 
-export default Header;
+const mapStateToProps = (state: RootState) => ({
+    firstProduct: state.products[0]
+})
+
+export default connect(mapStateToProps)(Header);
