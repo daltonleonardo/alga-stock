@@ -5,7 +5,9 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 // import http from './utils/http';
 import { Provider } from 'react-redux';
-import store from './redux';
+import { store, persistor } from './redux';
+import { PersistGate } from 'redux-persist/integration/react'
+
 
 // http.get('/posts');
 // http.get('https://viacep.com.br/ws/04205000/json/');
@@ -14,7 +16,9 @@ import store from './redux';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
